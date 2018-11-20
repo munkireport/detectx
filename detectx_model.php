@@ -68,6 +68,8 @@ class Detectx_model extends \Model
             $this->status = "Clean";
             $this->issues = 'No Issues Detected';
             $this->numberofissues = 0;
+            $this->infectionstatus = false;
+            $this->issuestatus = false;
         }
         $this->infectionstatus = (int) $this->infectionstatus;
         $this->issuestatus = (int) $this->issuestatus;
