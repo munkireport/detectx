@@ -18,6 +18,10 @@ class Detectx_model extends \Model
         $this->rs['infections'] = '';
         $this->rs['issues'] = '';
 
+        if ($serial) {
+            $this->retrieve_record($serial);
+        }
+
         $this->serial_number = $serial;
     }
 
