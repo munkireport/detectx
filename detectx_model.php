@@ -1,7 +1,6 @@
 <?php
 class Detectx_model extends \Model
 {
-
     function __construct($serial='')
     {
         parent::__construct('id', 'detectx'); //primary key, tablename
@@ -17,16 +16,11 @@ class Detectx_model extends \Model
         $this->rs['issuestatus'] = false;
         $this->rs['infections'] = '';
         $this->rs['issues'] = '';
-
         if ($serial) {
             $this->retrieve_record($serial);
         }
-
         $this->serial_number = $serial;
     }
-
-    // ------------------------------------------------------------------------
-
 
     /**
    * Process data sent by postflight
@@ -41,7 +35,6 @@ class Detectx_model extends \Model
         if (! $json ) {
             throw new Exception("Error Processing Request: No JSON file found", 1);
         }
-
         // Process json into object thingy
         $data = json_decode($json, true);
         $this->searchdate = strtotime($data['searchdate']);
