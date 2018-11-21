@@ -48,23 +48,27 @@ class Detectx_model extends \Model
         $this->scantime = isset($data['duration']) ? $data['duration'] : 0;
         $this->spotlightindexing = (int) $data['spotlightindexing'];
         $this->registered = (int) $data['registered'];
-        $len = count($data['infections']);
-        $lis = count($data['issues']);
-        if ($len > 0) {
+        $this->numberofissues = 0;
+        $this->infections = '';
+        $this->issues = '';
+        $leninfections = count($data['infections']);
+        $lenissues = count($data['issues']);
+        if ($leninfections > 0) {
             $this->infectionstatus = true;
             $this->status = "Infections";
             foreach ($data['infections'] as $infectionname) {
                 $this->numberofissues += 1;
                 $this->infections .= ($infectionname . ";");
             }
-        } else if ($lis > 0) {
+        } else if ($lenissues > 0) {
             $this->issuestatus = true;
             $this->status = "Issues";
             foreach ($data['issues'] as $issuesname) {
                 $this->numberofissues += 1;
                 $this->issues .= ($issuesname . ";");
             }
-        } else {
+        }
+        else {
             $this->status = "Clean";
             $this->issues = 'No Issues Detected';
             $this->numberofissues = 0;
@@ -73,7 +77,6 @@ class Detectx_model extends \Model
         }
         $this->infectionstatus = (int) $this->infectionstatus;
         $this->issuestatus = (int) $this->issuestatus;
-
         $this->save();
     }
 }
