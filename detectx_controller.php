@@ -38,7 +38,9 @@ class Detectx_controller extends Module_controller
                     COUNT(CASE WHEN `status` = 'Clean' THEN 1 END) AS Clean,
                     COUNT(CASE WHEN `infectionstatus` = 1 THEN 1 END) AS Infected,
                     COUNT(CASE WHEN `issuestatus` = 1 THEN 1 END) AS Issues
-                    FROM detectx";
+                    FROM detectx
+                    LEFT JOIN reportdata USING (serial_number)
+                    ".get_machine_group_filter();
       $obj->view('json', array('msg' => current($queryobj->query($sql))));
   }
 
