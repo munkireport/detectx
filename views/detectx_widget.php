@@ -11,8 +11,26 @@
 
 
     </div>
-    <div class="panel-body text-center"></div>
+    
+    <div class="panel-body text-center">
+      
+      <a tag="Clean" class="btn btn-success disabled">
+        <span class="bigger-150"> 0 </span><br>
+        <span data-i18n="detectx.widget.clean"></span>
+      </a>
 
+      <a tag="Issues" class="btn btn-warning disabled">
+        <span class="bigger-150"> 0 </span><br>
+        <span data-i18n="detectx.widget.issues"></span>
+      </a>
+
+      <a tag="Infected" class="btn btn-danger disabled">
+        <span class="bigger-150"> 0 </span><br>
+        <span data-i18n="detectx.widget.infected"></span>
+      </a>
+
+    </div>
+    
   </div><!-- /panel -->
 
 </div><!-- /col -->
@@ -25,15 +43,14 @@ $(document).on('appUpdate', function(e, lang) {
       //alert(data.error);
       return;
     }
-
-    var panel = $('#detectx-widget div.panel-body'),
-    baseUrl = appUrl + '/show/listing/detectx/detectx/#';
-    panel.empty();
-    // Set statuses
-    panel.append(' <a href="'+baseUrl+'clean" class="btn btn-success"><span class="bigger-150">'+data.Clean+'</span><br>'+i18n.t('detectx.widget.clean')+'</a>');
-    panel.append(' <a href="'+baseUrl+'issues" class="btn btn-warning"><span class="bigger-150">'+data.Issues+'</span><br>'+i18n.t('detectx.widget.issues')+'</a>');
-	  panel.append(' <a href="'+baseUrl+'infected" class="btn btn-danger"><span class="bigger-150">'+data.Infected+'</span><br>'+i18n.t('detectx.widget.infected')+'</a>');
-
+    
+    $.each(['Clean', 'Issues', 'Infected'], function(index, type){
+        $('#detectx-widget a[tag='+type+']')
+          .attr('href', appUrl + '/show/listing/detectx/detectx/#' + type)
+          .toggleClass('disabled', ! +data[type])
+          .find('span.bigger-150')
+              .text(+data[type])
+    })
   });
 });
 
