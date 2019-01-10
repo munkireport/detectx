@@ -16,17 +16,17 @@
       
       <a tag="Clean" class="btn btn-success disabled">
         <span class="bigger-150"> 0 </span><br>
-        <span data-i18n="detectx.widget.clean"></span>
+        <span></span>
       </a>
 
       <a tag="Issues" class="btn btn-warning disabled">
         <span class="bigger-150"> 0 </span><br>
-        <span data-i18n="detectx.widget.issues"></span>
+        <span></span>
       </a>
 
       <a tag="Infected" class="btn btn-danger disabled">
         <span class="bigger-150"> 0 </span><br>
-        <span data-i18n="detectx.widget.infected"></span>
+        <span></span>
       </a>
 
     </div>
@@ -50,9 +50,10 @@ $(document).on('appUpdate', function(e, lang) {
           .toggleClass('disabled', ! +data[type])
           .find('span.bigger-150')
               .text(+data[type])
+          .nextAll().last()
+              .text(i18n.t('detectx.widget.' + type.toLowerCase(), {count: +data[type]}))
     })
   });
 });
-
 
 </script>

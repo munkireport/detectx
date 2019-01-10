@@ -18,7 +18,8 @@
   "widget": {
     "title": "DetectX Status",
     "clean": "Clean",
-    "issues": "Issues",
+    "issues": "Issue",
+    "issues_plural": "Issues",
     "infected": "Infected"
   },
   "title": "DetectX"
