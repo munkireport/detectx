@@ -4,7 +4,7 @@ DetectX Module
 **Admins are responsible for creating their own launch daemon that runs DetectX and provides the results data to:**
 
 ```text
-/usr/local/munkireport/preflight.d/cache/
+/usr/local/munkireport/scripts/cache/
 ```
 
 Module pulls data from DetectX Swift (requires Pro or Management License!) results `json`. It does not **run** DetectX!
@@ -29,7 +29,7 @@ Example Launch Daemon
         <string>/Applications/DetectX Swift.app/Contents/MacOS/DetectX Swift</string>
         <string>search</string>
         <string>-aj</string>
-        <string>/usr/local/munkireport/preflight.d/cache/detectx.json</string>
+        <string>/usr/local/munkireport/scripts/cache/detectx.json</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
