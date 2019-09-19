@@ -7,7 +7,7 @@
         <key>identifier</key>
         <string>com.munkireport.detectx.launchd</string>
         <key>install_location</key>
-        <string>/</string>
+        <string>/Library</string>
         <key>name</key>
         <string>munkireport-detectx-launchd.pkg</string>
         <key>ownership</key>
