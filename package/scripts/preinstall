@@ -1,0 +1,8 @@
+#!/bin/zsh
+if [[ -f /Library/LaunchDaemons/com.munkireport.detectx.hourly_scan.plist ]]
+then
+    /bin/launchctl bootout system /Library/LaunchDaemons/com.munkireport.detectx.hourly_scan.plist
+    rm -f /Library/LaunchDaemons/com.munkireport.detectx.hourly_scan.plist
+else
+    exit 0;
+fi

@@ -1,0 +1,2 @@
+#!/bin/zsh
+/bin/launchctl bootstrap system /Library/LaunchDaemons/com.munkireport.detectx.hourly_scan.plist

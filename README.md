@@ -15,7 +15,7 @@ Differences between Infection and Issue:
     - If you ever get an infection, the best course of action is to contact support@sqwarq.com with details so that you can remediate it.
 - Issues are something DTXS can deal with by simple file deletion and restart of the system
 
-Example Launch Daemon
+Example Launch Daemon (also included is an example package build for [munkipkg](https://github.com/munki/munki-pkg) under the package directory)
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
